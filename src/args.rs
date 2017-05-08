@@ -1000,7 +1000,7 @@ fn stdin_is_readable() -> bool {
 }
 
 /// Returns true if and only if stdin is deemed searchable.
-#[cfg(windows)]
+#[cfg(any(windows, target_os = "redox"))]
 fn stdin_is_readable() -> bool {
     // On Windows, it's not clear what the possibilities are to me, so just
     // always return true.
